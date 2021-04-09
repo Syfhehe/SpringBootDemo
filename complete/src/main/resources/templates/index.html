@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>HAR Content API Test Page</title>
+
+<link rel="stylesheet" href="css/styles.css">
+<script type="text/javascript" src="js/index.js"></script>
+</head>
+<body style="width: 700px;">
+
+	<h1>HAR Content API Test Page</h1>
+	<p>
+		This is test page for <a
+			href="https://github.com/devtools-html/har-export-trigger">HARExportTrigger</a>
+		extension and DevTools <a
+			href="https://developer.chrome.com/extensions/devtools_network">Network</a>
+		WebExtension API.
+	</p>
+
+	<h2>Make some HTTP requests so, there is something to export</h2>
+	<ul class="xhrRequests">
+		<li><button id="xhr1" onclick="onExecuteTest()">Text</button>
+			Simple text response</li>
+		<li><button id="xhr2" onclick="onGetSmallImage()">Small
+				Image</button> Small image</li>
+		<li><button id="xhr3" onclick="onGetBigImage()">Big
+				Image</button> The image size is over the response body size limit</li>
+		<li><button id="xhr4" onclick="onPostData()">Post Data</button>
+			Post data in the request body</li>
+	</ul>
+
+	<h2>Use HAR API</h2>
+	Let's test two HAR API methods. All results can be seen in the Console
+	panel. You need to select the Network panel at least once so, it's
+	initialized and starts intercepting HTTP traffic.
+
+	<ul>
+		<li><code>getHAR</code> Get network panel content as HAR</li>
+		<li><code>onRequestFinished</code> Register callback that is
+			executed every time HTTP request finishes. This hook represents
+			performance bottleneck, and so the listener needs to be explicitly
+			added.</li>
+	</ul>
+	<br>
+
+	<button onclick="onGetHar()">getHar</button>
+	Get Network panel content as HAR
+	<br>
+	<br>
+
+	<button onclick="onAddRequestListener()">Add Request Listener</button>
+	<button onclick="onRemoveRequestListener()">Remove Request
+		Listener</button>
+	Add/remove
+	<code>onRequestFinished</code>
+	listener
+	<br>
+	<br>
+
+
+</body>
+</html>
