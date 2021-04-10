@@ -31,10 +31,12 @@
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 		<!-- end::actuator[] -->
+		<!-- tag::thymeleaf[] -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
+		<!-- end::thymeleaf[] -->
 		<!-- tag::tests[] -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
