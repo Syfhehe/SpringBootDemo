@@ -37,6 +37,14 @@ function onGetHar() {
   HAR.triggerExport(options).then(function(harLog) {
     var ellapsed = Date.now() - start;
     console.log("-> Done! (" + ellapsed + "ms)", harLog);
+    var eleLink = document.createElement('a');
+    eleLink.download = "har1";
+    eleLink.style.display = 'none';
+    var blob = new Blob([JSON.stringify(harLog)], {type:"text/plain"});
+    eleLink.href = URL.createObjectURL(blob);
+    document.body.appendChild(eleLink);
+    eleLink.click();
+    document.body.removeChild(eleLink);
   });
 }
 
