@@ -30,9 +30,7 @@ function onPostData()  {
 function onGetHar() {
   var options = {
   };
-
   console.log("-> triggering export...");
-
   var start = Date.now();
   HAR.triggerExport(options).then(function(harLog) {
     var ellapsed = Date.now() - start;
